@@ -7,8 +7,8 @@ $ (function() {
         }
         return str;
     }
-
     function Column(name) {
+        //Creating components of columns
         var self = this;
 
         this.id = randomString();
@@ -21,6 +21,14 @@ $ (function() {
             var $columnCardList = $('<ul>').addClass('column-card-list');
             var $columnDelete = $('<button>').addClass('btn-delete').text('x');
             var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
+        
+            $columnDelete.click(function() {
+                self.removeColumn();
+            });
+
+            $columnAddCard.click(function() {
+                self.addCard(new Card(prompt("Enter the name of the card")));
+            });
         }
     }
 });
