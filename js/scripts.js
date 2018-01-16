@@ -7,6 +7,7 @@ $ (function() {
         }
         return str;
     }
+
     function Column(name) {
         var self = this;
 
@@ -88,7 +89,7 @@ $ (function() {
             this.$element.append(column.$element);
             initSortable();
         },
-        $element: $('#board.column-container')
+        $element: $('#board .column-container')
     };
 
     function initSortable() {
@@ -102,7 +103,7 @@ $ (function() {
         .click(function() {
             var name = prompt('Enter a column name');
             var column = new Column(name);
-            board.addColumn(column);
+                board.addColumn(column);
         });
 
     //Creating columns
