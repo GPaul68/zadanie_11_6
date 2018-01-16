@@ -58,13 +58,20 @@ $ (function() {
         this.$element = createCard();
 
         function createCard() {
+            //Creating the blocks
             var $card = $('<li>').addClass('card');
             var $cardDescription = $('<p>').addClass('card-description').text(self.description);
             var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
+            //Binding to click event
             $cardDelete.click(function() {
                 self.removeCard();
             });
+
+            //Combining blocks and returning the card
+            $card.append($cardDelete)
+                .append($cardDescription);
+                return $card;
         }
     }
 });
