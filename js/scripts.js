@@ -74,4 +74,11 @@ $ (function() {
                 return $card;
         }
     }
+
+    Card.prototype = {
+        removeCard: function() {
+            this.$element.remove();
+        }
+    }
+    
 });
