@@ -1,18 +1,26 @@
-function Button(text) {
-    this.text = text || 'Hello'
-};
-
-Button.prototype = {
-    create: function() {
-        var self = this;
-        this.$element = $('<button>');
-        this.$element.text(this.text);
-        this.$element.on('click', function() {
-            alert(self.text);
-        });
-        $('body').append(this.$element);
+$ (function() {
+    function randomString() {
+        var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
+        var str = '';
+        for (var i = 0; i < 10; i++) {
+            str += chars[Math.floor(Math.random() * chars.length)];
+        }
+        return str;
     }
-}
 
-var btn1 = new Button('Hello');
-btn1.create();
+    function Column(name) {
+        var self = this;
+
+        this.id = randomString();
+        this.name = name;
+        this.$element = createColumn();
+
+        function createColumn() {
+            var $column = $('<div>').addClass('column');
+            var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
+            var $columnCardList = $('<ul>').addClass('column-card-list');
+            var $columnDelete = $('<button>').addClass('btn-delete').text('x');
+            var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
+        }
+    }
+});
