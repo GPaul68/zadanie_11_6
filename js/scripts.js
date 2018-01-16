@@ -81,4 +81,14 @@ $ (function() {
         }
     }
     
+    //Creating new columns
+    var board = {
+        name: 'Kanban Board',
+        addColumn: function(column) {
+            this.$element.append(column.$element);
+            initSortable();
+        },
+        $element: $('#board.column-container')
+    };
+
 });
