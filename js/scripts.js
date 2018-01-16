@@ -8,7 +8,6 @@ $ (function() {
         return str;
     }
     function Column(name) {
-        //Creating components of columns
         var self = this;
 
         this.id = randomString();
@@ -16,12 +15,14 @@ $ (function() {
         this.$element = createColumn();
 
         function createColumn() {
+            //Creating components of columns
             var $column = $('<div>').addClass('column');
             var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
             var $columnCardList = $('<ul>').addClass('column-card-list');
             var $columnDelete = $('<button>').addClass('btn-delete').text('x');
             var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
         
+            //Adding events
             $columnDelete.click(function() {
                 self.removeColumn();
             });
@@ -29,6 +30,15 @@ $ (function() {
             $columnAddCard.click(function() {
                 self.addCard(new Card(prompt("Enter the name of the card")));
             });
+
+            //Construction column elelment
+            $column.append($columnTitle)
+                .append($columnDelete)
+                .append($columnAddCard)
+                .append($columnCardList);
+
+            //Return of created column
+            return $column;
         }
     }
 });
