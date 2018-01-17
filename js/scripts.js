@@ -24,11 +24,11 @@ $ (function() {
             var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
         
             //Adding events
-            $columnDelete.click(function() {
+            $columnDelete.on('click', function() {
                 self.removeColumn();
             });
 
-            $columnAddCard.click(function() {
+            $columnAddCard.on('click', function() {
                 self.addCard(new Card(prompt("Enter the name of the card")));
             });
 
@@ -65,7 +65,7 @@ $ (function() {
             var $cardDelete = $('<button>').addClass('btn-delete').text('x');
 
             //Binding to click event
-            $cardDelete.click(function() {
+            $cardDelete.on('click', function() {
                 self.removeCard();
             });
 
